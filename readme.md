@@ -15,6 +15,7 @@ These are the only functional requirements for your implementation:
 - Credit card field is any number
 - CVC is any number
 - Expires is any valid date
+
 ## Submit
 - You cannot submit until input fields
 - When submitting then console log the input values
