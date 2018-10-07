@@ -33,7 +33,7 @@ Please commit frequently to communicate your thoughts while working on this assi
 Use roughly 3 hours on this assignment. You are only expected to do work on this assignment that matches the skill level of the role you are applying for, but you are welcome to do as much as you like. You are not necessarily expected to do everything in this assignment because of the short time duration of the assignment.
 
 # Tools
-You are encouraged to use can use anything you can find on the internet except from other other people's solution for this assignment. 
+You are encouraged to use anything you can find on the internet except from other people's solution to this assignment. 
 
 # Tech
 You need to use at least these: 
