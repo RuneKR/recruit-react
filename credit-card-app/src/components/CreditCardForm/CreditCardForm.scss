@@ -1,0 +1,14 @@
+.ant-form {
+  max-width: 350px;
+  margin: auto;
+}
+
+.ant-form-item-label {
+  > label::after {
+    display: none;
+  }
+}
+
+.creditCardForm-cvcExpiryRow {
+  display: flex;
+}
