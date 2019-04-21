@@ -11,6 +11,10 @@ export function formatCardNumber(input: string) {
   return cardNumber;
 }
 
+export function formatCvc(input: string) {
+  return input.replace(/\D/g, "");
+}
+
 export function formatCardExpiryDate(input: string) {
   return input
     .replace(

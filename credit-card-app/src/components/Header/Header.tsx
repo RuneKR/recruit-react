@@ -20,16 +20,29 @@ class Header extends Component {
   };
 
   render() {
+    const title = (
+      <div>
+        Menu
+        <Icon
+          type="arrow-left"
+          className="header-menuClose"
+          onClick={this.hideMenu}
+        />
+      </div>
+    );
+
     return (
       <Layout.Header>
         <Drawer
-          title="Menu"
+          title={title}
           placement="left"
           closable={false}
           onClose={this.hideMenu}
           visible={this.state.isMenuVisible}
         >
-          <Menu />
+          <div className="header-menu">
+            <Menu />
+          </div>
         </Drawer>
         <Icon
           className="header-menuButton"

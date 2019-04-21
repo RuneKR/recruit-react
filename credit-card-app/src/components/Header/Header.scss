@@ -1,6 +1,21 @@
 .header-title {
   color: #fcbd1b;
   text-align: center;
+
+  @media only screen and (max-width: 600px) {
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.header-menu {
+  .ant-menu {
+    border-right: none;
+
+    .ant-menu-item {
+      padding: 0;
+    }
+  }
 }
 
 .header-menuButton {
@@ -11,14 +26,11 @@
   font-size: 25px;
 }
 
-.ant-layout-header {
-  background-color: black;
-}
+.header-menuClose {
+  float: right;
+  margin-top: 3px;
 
-.ant-menu {
-  border-right: none;
-
-  .ant-menu-item {
-    padding: 0;
+  &:hover {
+    cursor: pointer;
   }
 }

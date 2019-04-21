@@ -5,12 +5,27 @@ import Form, { FormComponentProps } from "antd/lib/form";
 import "./CreditCardForm.scss";
 import {
   formatCardExpiryDate,
-  formatCardNumber
+  formatCardNumber,
+  formatCvc
 } from "../../common/formatters";
 
+type State = typeof initialState;
 type Props = FormComponentProps;
 
-class CreditCardForm extends Component<Props> {
+const initialState = {
+  submitClicked: false
+};
+
+class CreditCardForm extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = initialState;
+  }
+
+  formatCvcField = (e: React.ChangeEvent<HTMLInputElement>) => {
+    return formatCvc(e.target.value);
+  };
+
   formatCardNumberField = (e: React.ChangeEvent<HTMLInputElement>) => {
     return formatCardNumber(e.target.value);
   };
@@ -23,30 +38,64 @@ class CreditCardForm extends Component<Props> {
     return value;
   };
 
+  handleSubmit = () => {
+    this.setState({ submitClicked: true });
+    this.props.form.validateFields((err: any, values: any) => {
+      if (!err) {
+        console.log(values);
+      }
+    });
+  };
+
   render() {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <Form>
-        <Form.Item label="Card Number">
+      <Form className="creditCardForm-form">
+        <Form.Item
+          label="Card Number"
+          className="creditCardForm-cardNumberFormItem"
+        >
           {getFieldDecorator("cardNumber", {
-            getValueFromEvent: this.formatCardNumberField
+            getValueFromEvent: this.formatCardNumberField,
+            rules: [
+              { required: true, message: "Required" },
+              { len: 19, message: "Too short" }
+            ],
+            validateTrigger: this.state.submitClicked ? "onChange" : "onSubmit"
           })(<Input placeholder="1234 1234 1234 1234" maxLength={19} />)}
         </Form.Item>
         <div className="creditCardForm-cvcExpiryRow">
           <Form.Item label="CVC">
-            {getFieldDecorator("cvc", {})(
-              <Input placeholder="123" maxLength={3} />
-            )}
+            {getFieldDecorator("cvc", {
+              getValueFromEvent: this.formatCvcField,
+              rules: [
+                { required: true, message: "Required" },
+                { len: 3, message: "Too short" }
+              ],
+              validateTrigger: this.state.submitClicked
+                ? "onChange"
+                : "onSubmit"
+            })(<Input placeholder="123" maxLength={3} />)}
           </Form.Item>
           <Form.Item label="Expiry">
             {getFieldDecorator("expiry", {
-              getValueFromEvent: this.formatExpiryDateField
+              getValueFromEvent: this.formatExpiryDateField,
+              rules: [
+                { required: true, message: "Required" },
+                { len: 5, message: "Too short" }
+              ],
+              validateTrigger: this.state.submitClicked
+                ? "onChange"
+                : "onSubmit"
             })(<Input placeholder="12/34" maxLength={5} />)}
           </Form.Item>
         </div>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button
+            className="creditCardForm-submitButton"
+            onClick={this.handleSubmit}
+          >
             Submit
           </Button>
         </Form.Item>

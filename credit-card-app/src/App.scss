@@ -1,3 +1,13 @@
 .ant-layout-content {
   padding-top: 15px;
 }
+
+.ant-layout-header {
+  background-color: black;
+}
+
+.ant-drawer-content-wrapper {
+  @media only screen and (max-width: 600px) {
+    width: 100% !important;
+  }
+}

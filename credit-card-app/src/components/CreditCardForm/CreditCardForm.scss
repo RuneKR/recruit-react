@@ -1,14 +1,33 @@
-.ant-form {
-  max-width: 350px;
+.creditCardForm-form {
+  max-width: 320px;
   margin: auto;
+  padding: 10px;
+
+  .ant-form-item-label {
+    > label::after {
+      display: none;
+    }
+  }
 }
 
-.ant-form-item-label {
-  > label::after {
-    display: none;
-  }
+.creditCardForm-cardNumberFormItem {
+  margin-bottom: 0;
 }
 
 .creditCardForm-cvcExpiryRow {
   display: flex;
+  justify-content: space-between;
+
+  > .ant-form-item {
+    &:first-child {
+      margin-right: 3px;
+    }
+    &:nth-child(2) {
+      margin-left: 3px;
+    }
+  }
+}
+
+.creditCardForm-submitButton {
+  width: 100%;
 }
