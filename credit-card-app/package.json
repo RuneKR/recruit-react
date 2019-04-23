@@ -7,7 +7,10 @@
     "@types/node": "11.13.6",
     "@types/react": "16.8.14",
     "@types/react-dom": "16.8.4",
+    "@types/react-test-renderer": "^16.8.1",
     "antd": "^3.16.3",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.2",
@@ -31,8 +34,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/react-redux": "^7.0.8",
     "node-sass": "^4.11.0",
+    "react-test-renderer": "^16.8.6",
     "typesafe-actions": "^4.0.0"
   }
 }

@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Component menu rendered correctly 1`] = `
+<ul
+  className="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+  onMouseEnter={[Function]}
+  onTransitionEnd={[Function]}
+  role="menu"
+  style={Object {}}
+>
+  <li
+    className="ant-menu-item"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="menuitem"
+    style={Object {}}
+  >
+    <a
+      href=""
+    >
+      Home
+    </a>
+  </li>
+  <li
+    className="ant-menu-item"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="menuitem"
+    style={Object {}}
+  >
+    <a
+      href=""
+    >
+      Contact Us
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Menu rendered correctly 1`] = `
+<ul
+  className="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+  onMouseEnter={[Function]}
+  onTransitionEnd={[Function]}
+  role="menu"
+  style={Object {}}
+>
+  <li
+    className="ant-menu-item"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="menuitem"
+    style={Object {}}
+  >
+    <a
+      href=""
+    >
+      Home
+    </a>
+  </li>
+  <li
+    className="ant-menu-item"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="menuitem"
+    style={Object {}}
+  >
+    <a
+      href=""
+    >
+      Contact Us
+    </a>
+  </li>
+</ul>
+`;

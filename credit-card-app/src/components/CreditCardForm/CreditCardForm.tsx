@@ -8,9 +8,13 @@ import {
   formatCardNumber,
   formatCvc
 } from "../../common/formatters";
+import { CreditCard } from "../../models/creditCard.model";
 
 type State = typeof initialState;
-type Props = FormComponentProps;
+type OwnProps = {
+  onSubmit: (creditCard: CreditCard) => void;
+};
+type Props = FormComponentProps & OwnProps;
 
 const initialState = {
   submitClicked: false
@@ -42,7 +46,7 @@ class CreditCardForm extends Component<Props, State> {
     this.setState({ submitClicked: true });
     this.props.form.validateFields((err: any, values: any) => {
       if (!err) {
-        console.log(values);
+        this.props.onSubmit(values);
       }
     });
   };
@@ -56,7 +60,7 @@ class CreditCardForm extends Component<Props, State> {
           label="Card Number"
           className="creditCardForm-cardNumberFormItem"
         >
-          {getFieldDecorator("cardNumber", {
+          {getFieldDecorator("number", {
             getValueFromEvent: this.formatCardNumberField,
             rules: [
               { required: true, message: "Required" },
@@ -66,7 +70,7 @@ class CreditCardForm extends Component<Props, State> {
           })(<Input placeholder="1234 1234 1234 1234" maxLength={19} />)}
         </Form.Item>
         <div className="creditCardForm-cvcExpiryRow">
-          <Form.Item label="CVC">
+          <Form.Item label="CVC" className="creditCardForm-cvcFormItem">
             {getFieldDecorator("cvc", {
               getValueFromEvent: this.formatCvcField,
               rules: [
@@ -78,7 +82,7 @@ class CreditCardForm extends Component<Props, State> {
                 : "onSubmit"
             })(<Input placeholder="123" maxLength={3} />)}
           </Form.Item>
-          <Form.Item label="Expiry">
+          <Form.Item label="Expiry" className="creditCardForm-expiryFormItem">
             {getFieldDecorator("expiry", {
               getValueFromEvent: this.formatExpiryDateField,
               rules: [

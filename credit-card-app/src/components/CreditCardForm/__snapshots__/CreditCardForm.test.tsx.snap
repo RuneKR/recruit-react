@@ -1,0 +1,603 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreditCardForm Component form renders correctly 1`] = `
+<form
+  className="ant-form ant-form-horizontal creditCardForm-form"
+  onSubmit={[Function]}
+>
+  <div
+    className="ant-row ant-form-item creditCardForm-cardNumberFormItem"
+  >
+    <div
+      className="ant-col ant-form-item-label"
+    >
+      <label
+        className="ant-form-item-required"
+        htmlFor="number"
+        onClick={[Function]}
+        title="Card Number"
+      >
+        Card Number
+      </label>
+    </div>
+    <div
+      className="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        className="ant-form-item-control"
+      >
+        <span
+          className="ant-form-item-children"
+        >
+          <input
+            className="ant-input"
+            data-__field={
+              Object {
+                "name": "number",
+              }
+            }
+            data-__meta={
+              Object {
+                "getValueFromEvent": [Function],
+                "name": "number",
+                "originalProps": Object {
+                  "disabled": false,
+                  "maxLength": 19,
+                  "placeholder": "1234 1234 1234 1234",
+                  "type": "text",
+                },
+                "ref": null,
+                "rules": Array [
+                  Object {
+                    "message": "Required",
+                    "required": true,
+                  },
+                  Object {
+                    "len": 19,
+                    "message": "Too short",
+                  },
+                ],
+                "trigger": "onChange",
+                "validate": Array [
+                  Object {
+                    "rules": Array [
+                      Object {
+                        "message": "Required",
+                        "required": true,
+                      },
+                      Object {
+                        "len": 19,
+                        "message": "Too short",
+                      },
+                    ],
+                    "trigger": Array [
+                      "onSubmit",
+                    ],
+                  },
+                ],
+                "validateTrigger": "onSubmit",
+                "valuePropName": "value",
+              }
+            }
+            disabled={false}
+            id="number"
+            maxLength={19}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            onSubmit={[Function]}
+            placeholder="1234 1234 1234 1234"
+            type="text"
+            value=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="creditCardForm-cvcExpiryRow"
+  >
+    <div
+      className="ant-row ant-form-item creditCardForm-cvcFormItem"
+    >
+      <div
+        className="ant-col ant-form-item-label"
+      >
+        <label
+          className="ant-form-item-required"
+          htmlFor="cvc"
+          onClick={[Function]}
+          title="CVC"
+        >
+          CVC
+        </label>
+      </div>
+      <div
+        className="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          className="ant-form-item-control"
+        >
+          <span
+            className="ant-form-item-children"
+          >
+            <input
+              className="ant-input"
+              data-__field={
+                Object {
+                  "name": "cvc",
+                }
+              }
+              data-__meta={
+                Object {
+                  "getValueFromEvent": [Function],
+                  "name": "cvc",
+                  "originalProps": Object {
+                    "disabled": false,
+                    "maxLength": 3,
+                    "placeholder": "123",
+                    "type": "text",
+                  },
+                  "ref": null,
+                  "rules": Array [
+                    Object {
+                      "message": "Required",
+                      "required": true,
+                    },
+                    Object {
+                      "len": 3,
+                      "message": "Too short",
+                    },
+                  ],
+                  "trigger": "onChange",
+                  "validate": Array [
+                    Object {
+                      "rules": Array [
+                        Object {
+                          "message": "Required",
+                          "required": true,
+                        },
+                        Object {
+                          "len": 3,
+                          "message": "Too short",
+                        },
+                      ],
+                      "trigger": Array [
+                        "onSubmit",
+                      ],
+                    },
+                  ],
+                  "validateTrigger": "onSubmit",
+                  "valuePropName": "value",
+                }
+              }
+              disabled={false}
+              id="cvc"
+              maxLength={3}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              onSubmit={[Function]}
+              placeholder="123"
+              type="text"
+              value=""
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ant-row ant-form-item creditCardForm-expiryFormItem"
+    >
+      <div
+        className="ant-col ant-form-item-label"
+      >
+        <label
+          className="ant-form-item-required"
+          htmlFor="expiry"
+          onClick={[Function]}
+          title="Expiry"
+        >
+          Expiry
+        </label>
+      </div>
+      <div
+        className="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          className="ant-form-item-control"
+        >
+          <span
+            className="ant-form-item-children"
+          >
+            <input
+              className="ant-input"
+              data-__field={
+                Object {
+                  "name": "expiry",
+                }
+              }
+              data-__meta={
+                Object {
+                  "getValueFromEvent": [Function],
+                  "name": "expiry",
+                  "originalProps": Object {
+                    "disabled": false,
+                    "maxLength": 5,
+                    "placeholder": "12/34",
+                    "type": "text",
+                  },
+                  "ref": null,
+                  "rules": Array [
+                    Object {
+                      "message": "Required",
+                      "required": true,
+                    },
+                    Object {
+                      "len": 5,
+                      "message": "Too short",
+                    },
+                  ],
+                  "trigger": "onChange",
+                  "validate": Array [
+                    Object {
+                      "rules": Array [
+                        Object {
+                          "message": "Required",
+                          "required": true,
+                        },
+                        Object {
+                          "len": 5,
+                          "message": "Too short",
+                        },
+                      ],
+                      "trigger": Array [
+                        "onSubmit",
+                      ],
+                    },
+                  ],
+                  "validateTrigger": "onSubmit",
+                  "valuePropName": "value",
+                }
+              }
+              disabled={false}
+              id="expiry"
+              maxLength={5}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              onSubmit={[Function]}
+              placeholder="12/34"
+              type="text"
+              value=""
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ant-row ant-form-item"
+  >
+    <div
+      className="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        className="ant-form-item-control"
+      >
+        <span
+          className="ant-form-item-children"
+        >
+          <button
+            className="ant-btn creditCardForm-submitButton"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form renders correctly 1`] = `
+<form
+  className="ant-form ant-form-horizontal creditCardForm-form"
+  onSubmit={[Function]}
+>
+  <div
+    className="ant-row ant-form-item creditCardForm-cardNumberFormItem"
+  >
+    <div
+      className="ant-col ant-form-item-label"
+    >
+      <label
+        className="ant-form-item-required"
+        htmlFor="number"
+        onClick={[Function]}
+        title="Card Number"
+      >
+        Card Number
+      </label>
+    </div>
+    <div
+      className="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        className="ant-form-item-control"
+      >
+        <span
+          className="ant-form-item-children"
+        >
+          <input
+            className="ant-input"
+            data-__field={
+              Object {
+                "name": "number",
+              }
+            }
+            data-__meta={
+              Object {
+                "getValueFromEvent": [Function],
+                "name": "number",
+                "originalProps": Object {
+                  "disabled": false,
+                  "maxLength": 19,
+                  "placeholder": "1234 1234 1234 1234",
+                  "type": "text",
+                },
+                "ref": null,
+                "rules": Array [
+                  Object {
+                    "message": "Required",
+                    "required": true,
+                  },
+                  Object {
+                    "len": 19,
+                    "message": "Too short",
+                  },
+                ],
+                "trigger": "onChange",
+                "validate": Array [
+                  Object {
+                    "rules": Array [
+                      Object {
+                        "message": "Required",
+                        "required": true,
+                      },
+                      Object {
+                        "len": 19,
+                        "message": "Too short",
+                      },
+                    ],
+                    "trigger": Array [
+                      "onSubmit",
+                    ],
+                  },
+                ],
+                "validateTrigger": "onSubmit",
+                "valuePropName": "value",
+              }
+            }
+            disabled={false}
+            id="number"
+            maxLength={19}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            onSubmit={[Function]}
+            placeholder="1234 1234 1234 1234"
+            type="text"
+            value=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="creditCardForm-cvcExpiryRow"
+  >
+    <div
+      className="ant-row ant-form-item creditCardForm-cvcFormItem"
+    >
+      <div
+        className="ant-col ant-form-item-label"
+      >
+        <label
+          className="ant-form-item-required"
+          htmlFor="cvc"
+          onClick={[Function]}
+          title="CVC"
+        >
+          CVC
+        </label>
+      </div>
+      <div
+        className="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          className="ant-form-item-control"
+        >
+          <span
+            className="ant-form-item-children"
+          >
+            <input
+              className="ant-input"
+              data-__field={
+                Object {
+                  "name": "cvc",
+                }
+              }
+              data-__meta={
+                Object {
+                  "getValueFromEvent": [Function],
+                  "name": "cvc",
+                  "originalProps": Object {
+                    "disabled": false,
+                    "maxLength": 3,
+                    "placeholder": "123",
+                    "type": "text",
+                  },
+                  "ref": null,
+                  "rules": Array [
+                    Object {
+                      "message": "Required",
+                      "required": true,
+                    },
+                    Object {
+                      "len": 3,
+                      "message": "Too short",
+                    },
+                  ],
+                  "trigger": "onChange",
+                  "validate": Array [
+                    Object {
+                      "rules": Array [
+                        Object {
+                          "message": "Required",
+                          "required": true,
+                        },
+                        Object {
+                          "len": 3,
+                          "message": "Too short",
+                        },
+                      ],
+                      "trigger": Array [
+                        "onSubmit",
+                      ],
+                    },
+                  ],
+                  "validateTrigger": "onSubmit",
+                  "valuePropName": "value",
+                }
+              }
+              disabled={false}
+              id="cvc"
+              maxLength={3}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              onSubmit={[Function]}
+              placeholder="123"
+              type="text"
+              value=""
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ant-row ant-form-item creditCardForm-expiryFormItem"
+    >
+      <div
+        className="ant-col ant-form-item-label"
+      >
+        <label
+          className="ant-form-item-required"
+          htmlFor="expiry"
+          onClick={[Function]}
+          title="Expiry"
+        >
+          Expiry
+        </label>
+      </div>
+      <div
+        className="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          className="ant-form-item-control"
+        >
+          <span
+            className="ant-form-item-children"
+          >
+            <input
+              className="ant-input"
+              data-__field={
+                Object {
+                  "name": "expiry",
+                }
+              }
+              data-__meta={
+                Object {
+                  "getValueFromEvent": [Function],
+                  "name": "expiry",
+                  "originalProps": Object {
+                    "disabled": false,
+                    "maxLength": 5,
+                    "placeholder": "12/34",
+                    "type": "text",
+                  },
+                  "ref": null,
+                  "rules": Array [
+                    Object {
+                      "message": "Required",
+                      "required": true,
+                    },
+                    Object {
+                      "len": 5,
+                      "message": "Too short",
+                    },
+                  ],
+                  "trigger": "onChange",
+                  "validate": Array [
+                    Object {
+                      "rules": Array [
+                        Object {
+                          "message": "Required",
+                          "required": true,
+                        },
+                        Object {
+                          "len": 5,
+                          "message": "Too short",
+                        },
+                      ],
+                      "trigger": Array [
+                        "onSubmit",
+                      ],
+                    },
+                  ],
+                  "validateTrigger": "onSubmit",
+                  "valuePropName": "value",
+                }
+              }
+              disabled={false}
+              id="expiry"
+              maxLength={5}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              onSubmit={[Function]}
+              placeholder="12/34"
+              type="text"
+              value=""
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ant-row ant-form-item"
+  >
+    <div
+      className="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        className="ant-form-item-control"
+      >
+        <span
+          className="ant-form-item-children"
+        >
+          <button
+            className="ant-btn creditCardForm-submitButton"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;

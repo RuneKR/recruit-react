@@ -1,5 +1,6 @@
 import { UserState, UserActions } from "./types";
 import { Constants } from "./constants";
+import { bindActionCreators } from "redux";
 
 const initialState: UserState = {
   currentUser: {
@@ -9,12 +10,10 @@ const initialState: UserState = {
 
 export default (state: UserState = initialState, action: UserActions) => {
   switch (action.type) {
-    case Constants.GET_CURRENT_USER:
+    case Constants.SET_CURRENT_USER:
       return {
         ...state,
-        currentUser: {
-          firstName: "Rookie"
-        }
+        currentUser: action.payload
       };
     default:
       return state;

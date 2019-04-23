@@ -1,6 +1,7 @@
 import { action } from "typesafe-actions";
 import { Constants } from "./constants";
+import { User } from "../../models/user.model";
 
-export function getCurrentUser() {
-  return action(Constants.GET_CURRENT_USER);
+export function setCurrentUser(user: User) {
+  return action(Constants.SET_CURRENT_USER, user);
 }
