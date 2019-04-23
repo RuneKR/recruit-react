@@ -1,5 +1,7 @@
+@import "src/colors.scss";
+
 .header-title {
-  color: #fcbd1b;
+  color: $asb-yellow;
   text-align: center;
 
   @media only screen and (max-width: 600px) {

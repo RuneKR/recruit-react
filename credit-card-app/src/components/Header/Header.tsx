@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout, Button, Drawer, Icon } from "antd";
+import { Layout, Drawer, Icon } from "antd";
 
 import "./Header.scss";
 import Menu from "../Menu/Menu";
