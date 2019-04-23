@@ -14,98 +14,96 @@ describe("CreditCardForm Component", () => {
   });
 
   test("required messages appear", () => {
-    const component = mount(<CreditCardForm onSubmit={() => {}} />);
+    const wrapper = mount(<CreditCardForm onSubmit={() => {}} />);
 
-    component.find("Button").simulate("click");
+    wrapper.find("Button").simulate("click");
 
     expect(
-      component
+      wrapper
         .find(".creditCardForm-cardNumberFormItem .has-error .ant-form-explain")
         .text()
     ).toEqual("Required");
 
     expect(
-      component
+      wrapper
         .find(".creditCardForm-cvcFormItem .has-error .ant-form-explain")
         .text()
     ).toEqual("Required");
 
     expect(
-      component
+      wrapper
         .find(".creditCardForm-expiryFormItem .has-error .ant-form-explain")
         .text()
     ).toEqual("Required");
   });
 
   test("too short messages appear", () => {
-    const component = mount(<CreditCardForm onSubmit={() => {}} />);
+    const wrapper = mount(<CreditCardForm onSubmit={() => {}} />);
 
-    component
+    wrapper
       .find(".creditCardForm-cardNumberFormItem input")
       .simulate("change", { target: { value: "0" } });
 
-    component
+    wrapper
       .find(".creditCardForm-cvcFormItem input")
       .simulate("change", { target: { value: "0" } });
 
-    component
+    wrapper
       .find(".creditCardForm-expiryFormItem input")
       .simulate("change", { target: { value: "0" } });
 
-    component.find("Button").simulate("click");
+    wrapper.find("Button").simulate("click");
 
     expect(
-      component
+      wrapper
         .find(".creditCardForm-cardNumberFormItem .has-error .ant-form-explain")
         .text()
     ).toEqual("Too short");
 
     expect(
-      component
+      wrapper
         .find(".creditCardForm-cvcFormItem .has-error .ant-form-explain")
         .text()
     ).toEqual("Too short");
 
     expect(
-      component
+      wrapper
         .find(".creditCardForm-expiryFormItem .has-error .ant-form-explain")
         .text()
     ).toEqual("Too short");
   });
 
   test("card number field formatting", () => {
-    const component = mount(<CreditCardForm onSubmit={() => {}} />);
+    const wrapper = mount(<CreditCardForm onSubmit={() => {}} />);
     const selector = ".creditCardForm-cardNumberFormItem input";
 
-    component
+    wrapper
       .find(selector)
       .simulate("change", { target: { value: "1234123412341234" } });
-    expect(component.find(selector).props().value).toEqual(
-      "1234 1234 1234 1234"
-    );
+    expect(wrapper.find(selector).props().value).toEqual("1234 1234 1234 1234");
 
-    component
+    wrapper
       .find(selector)
       .simulate("change", { target: { value: "fdasklfj" } });
-    expect(component.find(selector).props().value).toEqual("");
+    expect(wrapper.find(selector).props().value).toEqual("");
 
-    component
+    wrapper
       .find(selector)
       .simulate("change", { target: { value: "12xxx341234#123&&." } });
-    expect(component.find(selector).props().value).toEqual("1234 1234 123");
+    expect(wrapper.find(selector).props().value).toEqual("1234 1234 123");
   });
 
   test("cvc field formatting", () => {
-    const component = mount(<CreditCardForm onSubmit={() => {}} />);
+    const wrapper = mount(<CreditCardForm onSubmit={() => {}} />);
     const selector = ".creditCardForm-cvcFormItem input";
 
-    component
+    wrapper
       .find(selector)
       .simulate("change", { target: { value: "1#@!  2 ##...3" } });
-    expect(component.find(selector).props().value).toEqual("123");
+    expect(wrapper.find(selector).props().value).toEqual("123");
 
-    component.find(selector).simulate("change", { target: { value: "dasds" } });
-    expect(component.find(selector).props().value).toEqual("");
+    wrapper.find(selector).simulate("change", { target: { value: "dasds" } });
+    expect(wrapper.find(selector).props().value).toEqual("");
   });
 
   test("expiry field formatting", () => {

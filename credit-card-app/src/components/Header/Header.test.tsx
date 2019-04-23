@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Enzyme, { shallow } from "enzyme";
+import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Header from "./Header";
 
@@ -13,16 +13,13 @@ describe("Header Component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test("show menu", () => {
-    /* 
-    Should really be testing for the visibility prop of <Drawer> - but apparently enzyme cannot fine elements 
-    rendered outside of render tree https://github.com/airbnb/enzyme/issues/1697. 
-    So testing for components' state change instead. I guess needs to be further covered in e2e?
-  */
+  test("show and hide menu", () => {
+    const wrapper = mount(<Header />);
 
-    const component = shallow(<Header />);
+    wrapper.find("Icon").simulate("click");
+    expect(wrapper.state("isMenuVisible")).toEqual(true);
 
-    component.find("Icon").simulate("click");
-    expect(component.state("isMenuVisible")).toEqual(true);
+    wrapper.find("i.header-menuClose").simulate("click");
+    expect(wrapper.state("isMenuVisible")).toEqual(false);
   });
 });
