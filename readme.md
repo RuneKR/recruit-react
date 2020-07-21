@@ -46,4 +46,4 @@ You need to use at least these:
 
 # Backend
 
-![Backend test](https://github.com/alessandromoura/recruit-backend)
+[Backend test](https://github.com/alessandromoura/recruit-backend)
