@@ -31,6 +31,7 @@ Please commit frequently to communicate your thoughts while working on this assi
 - Clean Code
 - State Management
 - Design (Responsive)
+- Accessibility
 
 ## Duration
 Use roughly 3 hours on this assignment. You are only expected to do work on this assignment that matches the skill level of the role you are applying for, but you are welcome to do as much as you like. You are not necessarily expected to do everything in this assignment because of the short time duration of the assignment.
