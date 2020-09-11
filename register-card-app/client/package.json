@@ -39,6 +39,9 @@
       "last 1 safari version"
     ]
   },
+  "devDependencies": {
+    "ts-jest": "^26.3.0"
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -65,9 +68,6 @@
         "functions": 95
       }
     },
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/ts-jest"
     },
@@ -80,8 +80,5 @@
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
       "src/(.*)$": "<rootDir>/src/$1"
     }
-  },
-  "devDependencies": {
-    "ts-jest": "^26.3.0"
   }
 }
