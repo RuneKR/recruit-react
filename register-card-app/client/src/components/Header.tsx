@@ -2,10 +2,12 @@ import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
-type HeaderProps = {
+export interface HeaderProps {
   title: string;
-};
+  isMenuShowing?: boolean;
+}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,9 +23,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Header({ title = "Menu" }: HeaderProps) {
+export default function Header({
+  title = "Menu",
+  isMenuShowing = false,
+}: HeaderProps) {
   const classes = useStyles();
 
+  const icon = isMenuShowing ? (
+    <ArrowBackIcon data-testid="ArrowBackIcon" />
+  ) : (
+    <MenuIcon data-testid="MenuIcon" />
+  );
+  
   return (
     <div className={classes.root} data-testid="Header">
       <AppBar position="static">
@@ -34,7 +45,7 @@ export default function Header({ title = "Menu" }: HeaderProps) {
             color="inherit"
             aria-label="menu"
           >
-            <MenuIcon data-testid="MenuIcon" />
+            {icon}
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             {title}
