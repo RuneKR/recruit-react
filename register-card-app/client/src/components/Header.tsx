@@ -4,8 +4,8 @@ import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
 type HeaderProps = {
-  title: string,
-}
+  title: string;
+};
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,28 +21,26 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Header({title = 'Menu'}: HeaderProps) {
-
+export default function Header({ title = "Menu" }: HeaderProps) {
   const classes = useStyles();
 
-  
   return (
-    <div className={classes.root}>
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-           <MenuIcon data-testid="MenuIcon"/>
-        </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          {title} 
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <div className={classes.root} data-testid="Header">
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon data-testid="MenuIcon" />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            {title}
+          </Typography>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }
