@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Paper, Grid, Typography, TextField, Button } from '@material-ui/core'
+import { Paper, Grid, Typography, Button } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import CardNumberTextField from './CardNumberTextField'
 import ExpiryDateTextField from './ExpiryDateTextField'
+import CvcNumberTextField from './CvcNumberTextField'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,6 +17,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     textField: {
       marginBottom: theme.spacing(3),
+    },
+    textFont: {
+      fontSize: '1.2em'
     },
     paper: {
       maxWidth: 'auto',
@@ -69,6 +73,7 @@ const RegisterForm: React.FC = () => {
             <form>
               <div className={classes.textField}>
                 <CardNumberTextField
+                  fontSize={'1.5em'}
                   cardNumber={cardNumber}
                   onCardNumberChange={onCardNumberChange}
                 />
@@ -82,21 +87,15 @@ const RegisterForm: React.FC = () => {
                   spacing={2}
                 >
                   <Grid item xs={6} xl={5} sm={4} md={3} lg={4}>
-                    <TextField
-                      required
-                      fullWidth
-                      id="input-cvc"
-                      data-testid="input-cvc"
-                      label="CVC"
-                      value={cvcNumber}
-                      onChange={onCvcNumberChange}
-                      name=""
-                      variant="outlined"
-                      placeholder="Enter CVC"
+                    <CvcNumberTextField
+                      fontSize={'1.3em'}
+                      cvcNumber={cvcNumber}
+                      onCvcNumberChange={onCvcNumberChange}
                     />
                   </Grid>
                   <Grid item xs={6} xl={5} sm={4} md={3} lg={4}>
                     <ExpiryDateTextField
+                      fontSize={'1.3em'}
                       expiryDate={expiryDate}
                       onExpiryDateChange={onExpiryDateChange}
                     />
@@ -104,7 +103,12 @@ const RegisterForm: React.FC = () => {
                 </Grid>
               </div>
               <div className={classes.textField}>
-                <Button size="large" fullWidth variant="contained" color="primary">
+                <Button
+                  size="large"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                >
                   Submit
                 </Button>
               </div>

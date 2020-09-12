@@ -2,18 +2,18 @@ import React from 'react'
 import NumberFormat from 'react-number-format'
 import TextField from '@material-ui/core/TextField'
 
-interface NumberFormatCustomProps {
+interface CardNumberFormatCustomProps {
   inputRef: (instance: NumberFormat | null) => void
   onChange: (event: { target: { name: string; value: string } }) => void
   name: string
 }
 
-const NumberFormatCustom: React.FC<NumberFormatCustomProps> = ({
+const CardNumberFormatCustom: React.FC<CardNumberFormatCustomProps> = ({
   inputRef,
   onChange,
   name,
   ...otherProps
-}: NumberFormatCustomProps) => (
+}: CardNumberFormatCustomProps) => (
   <NumberFormat
     {...otherProps}
     getInputRef={inputRef}
@@ -32,11 +32,13 @@ const NumberFormatCustom: React.FC<NumberFormatCustomProps> = ({
 )
 
 interface CardNumberTextFieldProps {
+  fontSize?: string
   cardNumber: string
   onCardNumberChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const CardNumberTextField: React.FC<CardNumberTextFieldProps> = ({
+  fontSize,
   cardNumber,
   onCardNumberChange,
 }: CardNumberTextFieldProps) => {
@@ -51,8 +53,9 @@ const CardNumberTextField: React.FC<CardNumberTextFieldProps> = ({
       onChange={onCardNumberChange}
       name="cardNumer"
       InputProps={{
+        style: { fontSize: fontSize },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        inputComponent: NumberFormatCustom as any,
+        inputComponent: CardNumberFormatCustom as any,
       }}
       variant="outlined"
       placeholder="Enter Credit Card Number"

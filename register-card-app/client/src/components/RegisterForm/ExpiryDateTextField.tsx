@@ -53,11 +53,13 @@ const ExpiryDateNumberFormatCustom: React.FC<NumberFormatCustomProps> = ({
 )
 
 interface ExpiryDateTextFieldProps {
+  fontSize?: string
   expiryDate: string
   onExpiryDateChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const ExpiryDateTextField: React.FC<ExpiryDateTextFieldProps> = ({
+  fontSize,
   expiryDate,
   onExpiryDateChange,
 }: ExpiryDateTextFieldProps) => {
@@ -72,6 +74,7 @@ const ExpiryDateTextField: React.FC<ExpiryDateTextFieldProps> = ({
       onChange={onExpiryDateChange}
       name="expiryDate"
       InputProps={{
+        style: { fontSize },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         inputComponent: ExpiryDateNumberFormatCustom as any,
       }}
