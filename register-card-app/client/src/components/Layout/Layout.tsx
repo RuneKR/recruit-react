@@ -3,26 +3,18 @@ import { Container, Grid } from '@material-ui/core'
 import Header from '../Header/Header'
 import { useHistory } from 'react-router-dom'
 
-type RouteMatcher = {
+export interface RouteMatcher {
   showMenus: boolean
   path: string
 }
 
 type LayoutProps = {
+  routes: RouteMatcher[],
   children?: React.ReactNode
 }
-const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps)  => {
+
+const Layout: React.FC<LayoutProps> = ({ routes, children }: LayoutProps)  => {
   const history = useHistory()
-  const matchers: RouteMatcher[] = [
-    {
-      showMenus: true,
-      path: '/MenuContent',
-    },
-    {
-      showMenus: false,
-      path: '/Main',
-    },
-  ]
 
   const [showMenus, setShowMenus] = useState(false)
 
@@ -31,12 +23,11 @@ const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps)  => {
 
     setShowMenus(targetState)
 
-    const matcher = matchers.find((m) => m.showMenus === targetState)
+    const matcher = routes.find((m) => m.showMenus === targetState)
     if (matcher) {
       history.push(matcher.path)
     }
   }
-
   return (
     <div>
       <Container maxWidth={false} disableGutters data-testid="Layout">
