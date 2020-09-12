@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
+      textAlign: 'center'
     },
   })
 );
@@ -26,7 +27,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Header({
   title = "Menu",
   isMenuShowing = false,
-}: HeaderProps) {
+  ...htmlProps
+}: HeaderProps & React.HTMLAttributes<HTMLElement>) {
   const classes = useStyles();
 
   const icon = isMenuShowing ? (
@@ -34,9 +36,9 @@ export default function Header({
   ) : (
     <MenuIcon data-testid="MenuIcon" />
   );
-  
+
   return (
-    <div className={classes.root} data-testid="Header">
+    <div className={classes.root} {...htmlProps}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
