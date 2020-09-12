@@ -1,6 +1,5 @@
 import React from 'react';
 import { fireEvent, screen, render, waitFor } from '@testing-library/react';
-// import { renderHook, act } from '@testing-library/react-hooks'
 import Layout from './Layout';
 
 describe('Layout', () => {
