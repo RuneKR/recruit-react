@@ -1,15 +1,22 @@
 import React from 'react'
 import { fireEvent, screen, render, waitFor } from '@testing-library/react'
 import Layout from './Layout'
+import { BrowserRouter } from 'react-router-dom'
 
 describe('Layout', () => {
+
+  const renderLayout = () => render(
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
+  )
   it('should render Header', () => {
-    const { getByTestId } = render(<Layout />)
+    const { getByTestId } = renderLayout() 
     expect(getByTestId('Header')).toBeTruthy()
   })
 
   it('should toggle menu', async () => {
-    render(<Layout />)
+    renderLayout() 
     fireEvent.click(screen.getByRole('menu'))
 
     await waitFor(() => screen.getByTestId('ArrowBackIcon'))
