@@ -5,13 +5,13 @@ import Header from './Header';
 describe('Header', () => {
   it('should render Menu', () => {
     const { getByTestId } = render(<Header title="Menu" toggleMenu={() => {}}/>)
-    expect(screen.getByText("Menu")).not.toBeNull();
-    expect(getByTestId('MenuIcon')).not.toBeNull();
+    expect(screen.getByText("Menu")).toBeTruthy();
+    expect(getByTestId('MenuIcon')).toBeTruthy();
   });
 
   it('should render Arrow when isMenuShowing prop is true', () => {
     const { getByTestId } = render(<Header title="Menu" toggleMenu={() => {}} isMenuShowing/>)
-    expect(getByTestId('ArrowBackIcon')).not.toBeNull();
+    expect(getByTestId('ArrowBackIcon')).toBeTruthy();
   })
 
   it('should call toggle when menu icon clicks', () => {

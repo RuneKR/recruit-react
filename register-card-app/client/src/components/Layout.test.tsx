@@ -6,7 +6,7 @@ import Layout from './Layout';
 describe('Layout', () => {
   it('should render Header', () => {
     const { getByTestId } = render(<Layout />)
-    expect(getByTestId('Header')).not.toBeNull();
+    expect(getByTestId('Header')).toBeTruthy();
   });
 
   it('should toggle menu', async () => {
