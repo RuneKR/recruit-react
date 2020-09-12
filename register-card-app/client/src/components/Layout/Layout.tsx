@@ -1,6 +1,7 @@
 import React, { useState }from "react";
 import { Container, Grid } from "@material-ui/core";
-import Header from "./Header";
+import Header from "../Header/Header";
+import MenuContent from '../MenuContent/MenuContent';
 
 export default function Layout() {
 
@@ -15,6 +16,7 @@ export default function Layout() {
       <Grid container direction="row" justify="center" alignItems="center">
         <Header title="Menu" isMenuShowing={showMenus} toggleMenu={toggleMenu} data-testid='Header' />
       </Grid>
+      <MenuContent />
     </Container>
   );
 }
