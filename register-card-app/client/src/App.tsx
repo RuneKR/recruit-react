@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Layout, { RouteMatcher } from './components/Layout/Layout'
 import MenuContent from './components/MenuContent/MenuContent'
+import RegisterForm from './components/RegisterForm/RegisterForm'
 
 const routes: RouteMatcher[] = [
   {
@@ -24,9 +25,9 @@ const App: React.FC = () => {
         <Layout routes={routes}>
           <Switch>
             <Route path="/">
-              <div>Main page</div>
+              <RegisterForm />
             </Route>
-            <Route exact path="/MenuContent">
+            <Route path="/MenuContent">
               <MenuContent />
             </Route>
           </Switch>
