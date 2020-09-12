@@ -25,12 +25,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-export default function Header({
+const Header: React.FC<HeaderProps & React.HTMLAttributes<HTMLElement>> = ({
   title = 'Menu',
   isMenuShowing = false,
-  toggleMenu = () => {},
+  toggleMenu,
   ...htmlProps
-}: HeaderProps & React.HTMLAttributes<HTMLElement>) {
+}: HeaderProps & React.HTMLAttributes<HTMLElement>) => {
   const classes = useStyles()
 
   const icon = isMenuShowing ? (
@@ -61,3 +61,5 @@ export default function Header({
     </div>
   )
 }
+
+export default Header

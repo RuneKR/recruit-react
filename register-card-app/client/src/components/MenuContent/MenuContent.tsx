@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 )
-export default function MenuContent() {
+const MenuContent: React.FC = () => {
   const classes = useStyles()
 
   return (
@@ -35,3 +35,5 @@ export default function MenuContent() {
     </div>
   )
 }
+
+export default MenuContent
