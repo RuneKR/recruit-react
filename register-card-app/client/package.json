@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write src/**/*.ts{,x}"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,7 +41,10 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "jest-environment-jsdom-sixteen": "^1.0.3",
+    "prettier": "^2.1.1",
     "react-test-renderer": "^16.13.1",
     "ts-jest": "^26.3.0"
   },
