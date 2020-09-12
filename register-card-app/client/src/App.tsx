@@ -7,10 +7,13 @@ const routes: RouteMatcher[] = [
   {
     showMenus: true,
     path: '/MenuContent',
+    title: 'Menu'
   },
   {
     showMenus: false,
-    path: '/Main',
+    path: '/',
+    title: 'Register card form',
+    default: true
   },
 ]
 
@@ -20,7 +23,7 @@ const App: React.FC = () => {
       <div>
         <Layout routes={routes}>
           <Switch>
-            <Route path="/Main">
+            <Route path="/">
               <div>Main page</div>
             </Route>
             <Route exact path="/MenuContent">

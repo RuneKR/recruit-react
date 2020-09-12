@@ -1,18 +1,21 @@
 import React from 'react'
 import { fireEvent, screen, render, waitFor } from '@testing-library/react'
-import Layout from './Layout'
+import Layout, { RouteMatcher } from './Layout'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 describe('Layout', () => {
 
-  const routes = [
+  const routes: RouteMatcher[] = [
     {
       showMenus: false,
-      path: '/1',
+      path: '/',
+      title:'page1 title',
+      default: true
     },
     {
       showMenus: true,
       path: '/2',
+      title: 'page2 title'
     },
   ]
 
@@ -49,6 +52,7 @@ describe('Layout', () => {
   it('should render page 1 before toggling', () => {
     const { getByText } = renderLayout() 
 
+    expect(getByText('page1 title')).toBeTruthy();
     expect(getByText('Page 1')).toBeTruthy()
   })
 
@@ -58,6 +62,7 @@ describe('Layout', () => {
     fireEvent.click(screen.getByRole('menu'))
     await waitFor(() => screen.getByText('Page 2'))
 
+    expect(screen.getByText('page2 title')).toBeTruthy();
     expect(screen.getByText('Page 2'))
   })
 })
