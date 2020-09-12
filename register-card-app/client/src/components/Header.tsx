@@ -7,6 +7,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 export interface HeaderProps {
   title: string;
   isMenuShowing?: boolean;
+  toggleMenu(event: React.MouseEvent<HTMLButtonElement>): void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,12 +28,13 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Header({
   title = "Menu",
   isMenuShowing = false,
+  toggleMenu = () => {},
   ...htmlProps
 }: HeaderProps & React.HTMLAttributes<HTMLElement>) {
   const classes = useStyles();
 
   const icon = isMenuShowing ? (
-    <ArrowBackIcon data-testid="ArrowBackIcon" />
+    <ArrowBackIcon data-testid="ArrowBackIcon"/>
   ) : (
     <MenuIcon data-testid="MenuIcon" />
   );
@@ -46,6 +48,8 @@ export default function Header({
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            role="menu"
+            onClick={toggleMenu}
           >
             {icon}
           </IconButton>
