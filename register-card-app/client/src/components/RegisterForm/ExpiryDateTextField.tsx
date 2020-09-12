@@ -79,7 +79,6 @@ const ExpiryDateTextField: React.FC<ExpiryDateTextFieldProps> = ({
         inputComponent: ExpiryDateNumberFormatCustom as any,
       }}
       variant="outlined"
-      placeholder="Enter Credit Card Number"
     />
   )
 }

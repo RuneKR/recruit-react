@@ -51,7 +51,6 @@ const CvcNumberTextField: React.FC<CvcNumberTextFieldProps> = ({
       onChange={onCvcNumberChange}
       name=""
       variant="outlined"
-      placeholder="CVC Number"
       InputProps={{
         style: { fontSize },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

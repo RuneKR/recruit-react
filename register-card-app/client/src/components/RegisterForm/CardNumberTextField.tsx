@@ -58,7 +58,6 @@ const CardNumberTextField: React.FC<CardNumberTextFieldProps> = ({
         inputComponent: CardNumberFormatCustom as any,
       }}
       variant="outlined"
-      placeholder="Enter Credit Card Number"
     />
   )
 }

@@ -14,12 +14,10 @@ const useStyles = makeStyles((theme: Theme) =>
       '& > *': {
         margin: theme.spacing(1),
       },
+
     },
     textField: {
       marginBottom: theme.spacing(3),
-    },
-    textFont: {
-      fontSize: '1.2em'
     },
     paper: {
       maxWidth: 'auto',
