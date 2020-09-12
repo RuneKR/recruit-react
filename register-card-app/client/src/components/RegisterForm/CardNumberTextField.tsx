@@ -13,10 +13,11 @@ const NumberFormatCustom: React.FC<NumberFormatCustomProps> = ({
   onChange,
   name,
   ...otherProps
-}: NumberFormatCustomProps): JSX.Element => (
+}: NumberFormatCustomProps) => (
   <NumberFormat
     {...otherProps}
     getInputRef={inputRef}
+    
     onValueChange={(values): void => {
       onChange({
         target: {
@@ -43,12 +44,14 @@ const CardNumberTextField: React.FC<CardNumberTextFieldProps> = ({
     <TextField
       required
       fullWidth
-      id="cardNumer"
+      id="input-cardNumber"
+      data-testid="input-cardNumber"
       label="Credit Card Number"
       value={cardNumber}
       onChange={onCardNumberChange}
       name="cardNumer"
       InputProps={{
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         inputComponent: NumberFormatCustom as any,
       }}
       variant="outlined"

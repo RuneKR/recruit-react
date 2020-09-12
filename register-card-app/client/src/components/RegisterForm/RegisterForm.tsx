@@ -85,7 +85,8 @@ const RegisterForm: React.FC = () => {
                     <TextField
                       required
                       fullWidth
-                      id="cvc"
+                      id="input-cvc"
+                      data-testid="input-cvc"
                       label="CVC"
                       value={cvcNumber}
                       onChange={onCvcNumberChange}

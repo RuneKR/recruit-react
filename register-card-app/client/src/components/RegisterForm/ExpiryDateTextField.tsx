@@ -21,8 +21,8 @@ const limit = (val: string, max: string): string => {
 }
 
 const cardExpiry = (val: string): string => {
-  let month = limit(val.substring(0, 2), '12')
-  let year = val.substring(2, 4)
+  const month = limit(val.substring(0, 2), '12')
+  const year = val.substring(2, 4)
 
   return month + (year.length ? '/' + year : '')
 }
@@ -65,12 +65,14 @@ const ExpiryDateTextField: React.FC<ExpiryDateTextFieldProps> = ({
     <TextField
       required
       fullWidth
-      id="expiryDate"
+      id="input-expiryDate"
+      data-testid="input-expiryDate"
       label="Expiry Date"
       value={expiryDate}
       onChange={onExpiryDateChange}
       name="expiryDate"
       InputProps={{
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         inputComponent: ExpiryDateNumberFormatCustom as any,
       }}
       variant="outlined"
