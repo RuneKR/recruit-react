@@ -44,7 +44,7 @@ describe('RegisterForm', () => {
       expiryDate: '0423',
     }
 
-    fireChangeEvent(container, expectedParameter)
+    fireInputsChangeEvent(container, expectedParameter)
 
     await act(async () => {
       fireEvent.submit(getByTestId('form'))
@@ -54,7 +54,7 @@ describe('RegisterForm', () => {
   })
 
 
-  function fireChangeEvent(container: HTMLElement, expectedParameter: CreditCard): void {
+  function fireInputsChangeEvent(container: HTMLElement, expectedParameter: CreditCard): void {
     const cardNumberInput = container.querySelector('input#input-cardNumber')
     const cvcInput = container.querySelector('input#input-cvc')
     const expiryDateInput = container.querySelector('input#input-expiryDate')

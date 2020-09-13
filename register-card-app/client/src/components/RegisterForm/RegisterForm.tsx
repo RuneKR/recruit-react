@@ -70,7 +70,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
       expiryDate,
     }
 
-    console.log("Call onSubmitCallback")
     await onSubmitCallback(creditCard)
   }
 
