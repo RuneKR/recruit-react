@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Layout, { RouteMatcher } from './components/Layout/Layout'
 import MenuContent from './components/MenuContent/MenuContent'
-import RegisterForm from './components/RegisterForm/RegisterForm'
+import RegisterForm, { CreditCard } from './components/RegisterForm/RegisterForm'
 
 const routes: RouteMatcher[] = [
   {
@@ -18,6 +18,12 @@ const routes: RouteMatcher[] = [
   },
 ]
 
+const onSubmitCallback = (creditCard: CreditCard): Promise<void> => {
+  // eslint-disable-next-line no-console
+  console.log('Submitting creditCard', creditCard) 
+  return Promise.resolve()
+}
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
@@ -28,7 +34,7 @@ const App: React.FC = () => {
               <Redirect to="/RegisterForm" />
             </Route>
             <Route path="/RegisterForm">
-              <RegisterForm />
+              <RegisterForm onSubmitCallback={onSubmitCallback}/>
             </Route>
             <Route path="/MenuContent">
               <MenuContent />

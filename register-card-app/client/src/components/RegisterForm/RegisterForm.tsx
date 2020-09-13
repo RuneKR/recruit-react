@@ -4,6 +4,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import CardNumberTextField from './CardNumberTextField'
 import ExpiryDateTextField from './ExpiryDateTextField'
 import CvcNumberTextField from './CvcNumberTextField'
+import { CreditCard } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -14,7 +15,6 @@ const useStyles = makeStyles((theme: Theme) =>
       '& > *': {
         margin: theme.spacing(1),
       },
-
     },
     textField: {
       marginBottom: theme.spacing(3),
@@ -31,7 +31,19 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-const RegisterForm: React.FC = () => {
+export interface CreditCard {
+  cardNumber: string
+  cvcNumber: string
+  expiryDate: string
+}
+
+export interface RegisterFormProps {
+  onSubmitCallback: (data: CreditCard) => Promise<void>
+}
+
+const RegisterForm: React.FC<RegisterFormProps> = ({
+  onSubmitCallback,
+}: RegisterFormProps) => {
   const classes = useStyles()
 
   const [cardNumber, setCardNumber] = useState('')
@@ -48,6 +60,18 @@ const RegisterForm: React.FC = () => {
 
   const onExpiryDateChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setExpiryDate(e.target.value)
+  }
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault()
+    const creditCard: CreditCard = {
+      cardNumber,
+      cvcNumber,
+      expiryDate,
+    }
+
+    console.log("Call onSubmitCallback")
+    await onSubmitCallback(creditCard)
   }
 
   return (
@@ -68,7 +92,7 @@ const RegisterForm: React.FC = () => {
           spacing={2}
         >
           <Grid item xs={12} xl={10} sm={8} md={6} lg={4}>
-            <form>
+            <form onSubmit={onSubmit} data-testid='form'>
               <div className={classes.textField}>
                 <CardNumberTextField
                   fontSize={'1.5em'}
@@ -106,6 +130,7 @@ const RegisterForm: React.FC = () => {
                   fullWidth
                   variant="contained"
                   color="primary"
+                  type="submit"
                 >
                   Submit
                 </Button>
