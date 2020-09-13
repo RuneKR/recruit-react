@@ -48,23 +48,29 @@ const ExpiryDateNumberFormatCustom: React.FC<NumberFormatCustomProps> = ({
         },
       })
     }}
-    format={cardExpiry} 
+    format={cardExpiry}
   />
 )
 
 interface ExpiryDateTextFieldProps {
+  error: boolean
+  helperText: string | undefined
   fontSize?: string
   expiryDate: string
   onExpiryDateChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const ExpiryDateTextField: React.FC<ExpiryDateTextFieldProps> = ({
+  error,
+  helperText,
   fontSize,
   expiryDate,
   onExpiryDateChange,
 }: ExpiryDateTextFieldProps) => {
   return (
     <TextField
+      error={error}
+      helperText={helperText}
       required
       fullWidth
       id="input-expiryDate"
@@ -84,4 +90,3 @@ const ExpiryDateTextField: React.FC<ExpiryDateTextFieldProps> = ({
 }
 
 export default ExpiryDateTextField
-

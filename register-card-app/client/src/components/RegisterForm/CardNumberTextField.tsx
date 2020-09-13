@@ -32,18 +32,24 @@ const CardNumberFormatCustom: React.FC<CardNumberFormatCustomProps> = ({
 )
 
 interface CardNumberTextFieldProps {
+  error: boolean
+  helperText: string | undefined
   fontSize?: string
   cardNumber: string
   onCardNumberChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const CardNumberTextField: React.FC<CardNumberTextFieldProps> = ({
+  error,
+  helperText,
   fontSize,
   cardNumber,
   onCardNumberChange,
 }: CardNumberTextFieldProps) => {
   return (
     <TextField
+      error={error}
+      helperText={helperText}
       required
       fullWidth
       id="input-cardNumber"

@@ -30,18 +30,24 @@ const CvcNumberFormatCustom: React.FC<CvcNumberFormatCustomProps> = ({
 )
 
 interface CvcNumberTextFieldProps {
+  error: boolean 
+  helperText: string | undefined
   fontSize?: string 
   cvcNumber: string
   onCvcNumberChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const CvcNumberTextField: React.FC<CvcNumberTextFieldProps> = ({
+  error,
+  helperText,
   fontSize,
   cvcNumber,
   onCvcNumberChange,
 }: CvcNumberTextFieldProps) => {
   return (
     <TextField
+      error={error}
+      helperText={helperText}
       required
       fullWidth
       id="input-cvc"

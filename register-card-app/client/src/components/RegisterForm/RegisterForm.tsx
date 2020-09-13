@@ -5,6 +5,8 @@ import CardNumberTextField from './CardNumberTextField'
 import ExpiryDateTextField from './ExpiryDateTextField'
 import CvcNumberTextField from './CvcNumberTextField'
 import { CreditCard } from '@material-ui/icons'
+import { formatErrorMessage } from './helpers'
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,6 +43,11 @@ export interface RegisterFormProps {
   onSubmitCallback: (data: CreditCard) => Promise<void>
 }
 
+interface ValidationError {
+  field: string
+  error: string
+}
+
 const RegisterForm: React.FC<RegisterFormProps> = ({
   onSubmitCallback,
 }: RegisterFormProps) => {
@@ -49,6 +56,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
   const [cardNumber, setCardNumber] = useState('')
   const [cvcNumber, setCvcNumber] = useState('')
   const [expiryDate, setExpiryDate] = useState('')
+  const [errors, SetErrors] = useState<ValidationError[]>([])
 
   const onCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setCardNumber(e.target.value)
@@ -62,8 +70,52 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
     setExpiryDate(e.target.value)
   }
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const validateField = (
+    field: string,
+    value: string,
+    condition: boolean
+  ): ValidationError[] => {
+    const newErrors = errors.filter((e: ValidationError) => e.field !== field)
+
+    if (!value || !condition) {
+      return [
+        ...newErrors,
+        {
+          field,
+          error: formatErrorMessage(field),
+        },
+      ]
+    }
+
+    return newErrors
+  }
+
+  const validateFields = (): ValidationError[] => {
+    const validationMethod = [
+      validateField('cardNumber', cardNumber, cardNumber.length >= 16),
+      validateField('cvcNumber', cvcNumber, cvcNumber.length >= 3),
+      validateField('expiryDate', expiryDate, expiryDate.length === 4)
+    ]
+    const newErrors = validationMethod.reduce(
+      (previous, current) => [...previous, ...current], 
+      [])
+
+    SetErrors(newErrors)
+
+    return newErrors;
+  }
+
+  const onSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     e.preventDefault()
+
+    const validationErrors = validateFields()
+
+    if (validationErrors.length > 0) {
+      return
+    }
+
     const creditCard: CreditCard = {
       cardNumber,
       cvcNumber,
@@ -91,12 +143,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
           spacing={2}
         >
           <Grid item xs={12} xl={10} sm={8} md={6} lg={4}>
-            <form onSubmit={onSubmit} data-testid='form'>
+            <form onSubmit={onSubmit} data-testid="form">
               <div className={classes.textField}>
                 <CardNumberTextField
                   fontSize={'1.5em'}
                   cardNumber={cardNumber}
                   onCardNumberChange={onCardNumberChange}
+                  error={errors.some((e) => e.field === 'cardNumber')}
+                  helperText={
+                    errors.find((e) => e.field === 'cardNumber')?.error
+                  }
                 />
               </div>
               <div className={classes.textField}>
@@ -112,6 +168,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                       fontSize={'1.3em'}
                       cvcNumber={cvcNumber}
                       onCvcNumberChange={onCvcNumberChange}
+                      error={errors.some((e) => e.field === 'cvcNumber')}
+                      helperText={
+                        errors.find((e) => e.field === 'cvcNumber')?.error
+                      }
                     />
                   </Grid>
                   <Grid item xs={6} xl={5} sm={4} md={3} lg={4}>
@@ -119,6 +179,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                       fontSize={'1.3em'}
                       expiryDate={expiryDate}
                       onExpiryDateChange={onExpiryDateChange}
+                      error={errors.some((e) => e.field === 'expiryDate')}
+                      helperText={
+                        errors.find((e) => e.field === 'expiryDate')?.error
+                      }
                     />
                   </Grid>
                 </Grid>

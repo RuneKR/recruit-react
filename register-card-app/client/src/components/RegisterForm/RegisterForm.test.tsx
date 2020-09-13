@@ -53,6 +53,62 @@ describe('RegisterForm', () => {
     expect(onSubmitCallback).toBeCalledWith(expectedParameter)
   })
 
+  it('should show error when credit card number is invalid', async () => {
+    const { container, getByTestId, getByText } = renderRegisterForm()
+
+    const expectedParameter: CreditCard = {
+      cardNumber: '123',
+      cvcNumber: '132',
+      expiryDate: '0423',
+    }
+
+    fireInputsChangeEvent(container, expectedParameter)
+
+    await act(async () => {
+      fireEvent.submit(getByTestId('form'))
+    })
+
+    expect(getByText('Card Number is invalid')).toBeTruthy()
+    expect(onSubmitCallback).not.toHaveBeenCalledWith(expectedParameter)
+  })
+
+  it('should show error when cvc number is invalid', async () => {
+    const { container, getByTestId, getByText } = renderRegisterForm()
+
+    const expectedParameter: CreditCard = {
+      cardNumber: '4929139878109731',
+      cvcNumber: '1',
+      expiryDate: '0423',
+    }
+
+    fireInputsChangeEvent(container, expectedParameter)
+
+    await act(async () => {
+      fireEvent.submit(getByTestId('form'))
+    })
+
+    expect(getByText('Cvc Number is invalid')).toBeTruthy()
+    expect(onSubmitCallback).not.toHaveBeenCalledWith(expectedParameter)
+  })
+
+  it('should show error when cvc number is invalid', async () => {
+    const { container, getByTestId, getByText } = renderRegisterForm()
+
+    const expectedParameter: CreditCard = {
+      cardNumber: '4929139878109731',
+      cvcNumber: '123',
+      expiryDate: '423',
+    }
+
+    fireInputsChangeEvent(container, expectedParameter)
+
+    await act(async () => {
+      fireEvent.submit(getByTestId('form'))
+    })
+
+    expect(getByText('Expiry Date is invalid')).toBeTruthy()
+    expect(onSubmitCallback).not.toHaveBeenCalledWith(expectedParameter)
+  })
 
   function fireInputsChangeEvent(container: HTMLElement, expectedParameter: CreditCard): void {
     const cardNumberInput = container.querySelector('input#input-cardNumber')
