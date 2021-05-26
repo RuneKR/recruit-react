@@ -1,7 +1,7 @@
-# Frontend
+# Assignment
 Create a one page application following the LO-FIs given in this assignment.
 
-We suggest to use create-react-app typescript for your setup.
+We suggest to use create-react-app typescript for your setup. Intemediate engineers and above are also expected to complete the [Backend test](https://github.com/runekr/recruit-backend)
 
 ## LO-FI
 Remember these are LO-FI and should only be treated as such.
@@ -36,15 +36,13 @@ Please commit frequently to communicate your thoughts while working on this assi
 ## Duration
 Use roughly 3 hours on this assignment. You are only expected to do work on this assignment that matches the skill level of the role you are applying for, but you are welcome to do as much as you like. You are not necessarily expected to do everything in this assignment because of the short time duration of the assignment.
 
-## Tools
-You are encouraged to use anything you can find on the internet except from other people's solution to this assignment. 
 
-## Tech
-You need to use at least these: 
+# Tools & Tech
+You can use any tools, plugins and technologies as required for you to complete this assignment. We expect that you in this assignment demonstrate competencies with the following technologies:
 
-- React
-- Typescript
+-	React
+-	Typescript
+-	CSS
 
-# Backend
-
-[Backend test instructions](https://github.com/alessandromoura/recruit-backend)
+# Submitting Assignment
+Feel free to create a public GitHub repo or private GitHub repo where you invite runekr. He can give access to the right people.
