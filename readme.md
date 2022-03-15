@@ -1,7 +1,7 @@
 # Assignment
 Create a one page application following the LO-FIs given in this assignment.
 
-We suggest to use create-react-app typescript for your setup. Intemediate engineers and above are also expected to complete the [Backend test](https://github.com/runekr/recruit-backend)
+We suggest to use create-react-app typescript for your setup. Intermediate engineers and above are also expected to complete the [Backend test](https://github.com/runekr/recruit-backend)
 
 ## LO-FI
 Remember these are LO-FI and should only be treated as such.
@@ -20,7 +20,7 @@ These are the only functional requirements for your implementation:
 - Expires is any valid date
 
 ### Submit
-- You cannot submit until input fields
+- You cannot submit until input fields are valid
 - When submitting then console log the input values
 
 ## Commits
