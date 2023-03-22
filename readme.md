@@ -1,7 +1,9 @@
 # Assignment
 Create a one page application following the LO-FIs given in this assignment.
 
-We suggest to use create-react-app typescript for your setup. Intermediate engineers and above are also expected to complete the [Backend test](https://github.com/runekr/recruit-backend)
+We suggest to use create-react-app typescript for your setup. You can find the here: [Backend test](https://github.com/runekr/recruit-backend).
+
+Juniors can do either the backend or frontend test. Ask your recruiter for which one you should do. Intermediate engineers and above are also expected to complete both tests
 
 ## LO-FI
 Remember these are LO-FI and should only be treated as such.
